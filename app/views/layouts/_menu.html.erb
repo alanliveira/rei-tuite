@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container">
+        
+        <%= link_to "REI-TUITE", root_path, class: "navbar-brand" %>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="main-menu">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to "Posts", posts_path, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+        <div class="justify-content-between">
+          <% if user_signed_in? %>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to "Cadastrar", new_user_registration_path, class: "btn btn-primary" %>
+            <%= link_to "Entrar", new_user_session_path, class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
